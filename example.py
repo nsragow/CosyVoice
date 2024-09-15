@@ -1,13 +1,15 @@
-from cosyvoice.cli.cosyvoice import CosyVoice
-from cosyvoice.utils.file_utils import load_wav
-import torchaudio
-
 import torch
 
 if torch.cuda.is_available():
     print("GPU is available")
 else:
     print("GPU is not available")
+
+
+from cosyvoice.cli.cosyvoice import CosyVoice
+from cosyvoice.utils.file_utils import load_wav
+import torchaudio
+
 
 
 cosyvoice = CosyVoice('pretrained_models/CosyVoice-300M')
