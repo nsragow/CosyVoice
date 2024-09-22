@@ -12,7 +12,7 @@ from cosyvoice.utils.file_utils import load_wav
 import torchaudio
 
 sample_rate = 44100
-
+print("loading model")
 cosyvoice = CosyVoice('pretrained_models/CosyVoice-300M')
 # zero_shot usage, <|zh|><|en|><|jp|><|yue|><|ko|> for Chinese/English/Japanese/Cantonese/Korean
 # prompt_speech_16k = load_wav('zero_shot_prompt.wav', 16000)
