@@ -29,7 +29,7 @@ cosyvoice = CosyVoice('pretrained_models/CosyVoice-300M')
 print("Starting load wav")
 prompt_speech_16k = load_wav('TrimmedNoahTalking-11025sr.wav', sample_rate)
 print("starting result")
-result = cosyvoice.inference_cross_lingual('<|ja|>こんにちは、今日は何をしていますか', prompt_speech_16k, stream=False)
+result = cosyvoice.inference_cross_lingual('<|ja|>こんにちは今日は何をしていますか', prompt_speech_16k, stream=False)
 print("finished result")
 for i, j in enumerate(result):
     wav_file = 'cross_lingual_{}.wav'.format(i)
