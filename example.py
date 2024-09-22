@@ -11,7 +11,8 @@ from cosyvoice.cli.cosyvoice import CosyVoice
 from cosyvoice.utils.file_utils import load_wav
 import torchaudio
 
-sample_rate = 44100
+# sample_rate = 44100
+sample_rate = 11025
 print("loading model")
 cosyvoice = CosyVoice('pretrained_models/CosyVoice-300M')
 # zero_shot usage, <|zh|><|en|><|jp|><|yue|><|ko|> for Chinese/English/Japanese/Cantonese/Korean
@@ -26,7 +27,7 @@ cosyvoice = CosyVoice('pretrained_models/CosyVoice-300M')
 
     # cross_lingual usage
 print("Starting load wav")
-prompt_speech_16k = load_wav('TrimmedNoahTalking.wav', sample_rate)
+prompt_speech_16k = load_wav('TrimmedNoahTalking-11025sr.wav', sample_rate)
 print("starting result")
 result = cosyvoice.inference_cross_lingual('<|ja|>こんにちは、今日は何をしていますか', prompt_speech_16k, stream=False)
 print("finished result")
