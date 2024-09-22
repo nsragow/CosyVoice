@@ -25,8 +25,12 @@ cosyvoice = CosyVoice('pretrained_models/CosyVoice-300M')
 #     torchaudio.save('cross_lingual_{}.wav'.format(i), j['tts_speech'], 22050)
 
     # cross_lingual usage
+print("Starting load wav")
 prompt_speech_16k = load_wav('NoahMonolougingcopy.wav', sample_rate)
-for i, j in enumerate(cosyvoice.inference_cross_lingual('<|ja|>こんにちは、今日は何をしていますか', prompt_speech_16k, stream=False)):
+print("starting result")
+result = cosyvoice.inference_cross_lingual('<|ja|>こんにちは、今日は何をしていますか', prompt_speech_16k, stream=False)
+print("finished result")
+for i, j in enumerate(result):
     wav_file = 'cross_lingual_{}.wav'.format(i)
     print(f'saving {wav_file}')
     torchaudio.save(wav_file, j['tts_speech'], 22050)
